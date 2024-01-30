@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4kxqj60t4vvb"]
+
+[ext_resource type="Texture2D" uid="uid://cs68fnbn4gj6j" path="res://icon.svg" id="1_cbp65"]
+[ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="2_45rgi"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("2_45rgi")
+metadata/speed = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.00637)
+texture = ExtResource("1_cbp65")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
