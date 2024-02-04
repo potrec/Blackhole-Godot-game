@@ -1,6 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706622973
+::res://::1707071012
 icon.svg::CompressedTexture2D::6102249537955473707::1706618716::1706618725::1::::<><>::
-PlayerScene.tscn::PackedScene::2057545828341172887::1706622936::0::1::::<><>::
-::res://Scenes/::1706622973
-LevelScene.tscn::PackedScene::6607887614253480795::1706622974::0::1::::<><>::uid://4kxqj60t4vvb::::res://PlayerScene.tscn
+README.md::TextFile::-1::1706650479::0::1::::<><>::
+::res://Scenes/::1707071576
+LevelScene.tscn::PackedScene::6607887614253480795::1707071576::0::1::::<><>::uid://4kxqj60t4vvb::::res://Scenes/PlayerScene.tscn
+PlayerScene.tscn::PackedScene::2057545828341172887::1707071576::0::1::::<><>::res://Scripts/PlayerScript.gd<>uid://dk6wscd5j6b5t::::res://Texture/blackhole.png
+::res://Scripts/::1707070691
+PlayerScript.gd::GDScript::-1::1707070691::0::1::::<>Node2D<>::
+::res://Texture/::1707071683
+blackhole.png::CompressedTexture2D::7926514227024054299::1707071683::1707071687::1::::<><>::

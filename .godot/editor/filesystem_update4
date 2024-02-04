@@ -1,5 +1,3 @@
-res://PlayerScene.tscn
-res://LevelScene.tscn
 res://Scenes/LevelScene.tscn
 res://Scenes/PlayerScene.tscn
 res://Scripts/PlayerScript.gd

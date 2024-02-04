@@ -1,14 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://4kxqj60t4vvb"]
+[gd_scene load_steps=5 format=3 uid="uid://4kxqj60t4vvb"]
 
-[ext_resource type="Texture2D" uid="uid://cs68fnbn4gj6j" path="res://icon.svg" id="1_cbp65"]
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="2_45rgi"]
+[ext_resource type="Texture2D" uid="uid://dk6wscd5j6b5t" path="res://Texture/blackhole.png" id="2_og5g1"]
+
+[sub_resource type="Animation" id="Animation_hj8c4"]
+resource_name = "Test"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53822"]
+_data = {
+"Test": SubResource("Animation_hj8c4")
+}
 
 [node name="Player" type="Node2D"]
 script = ExtResource("2_45rgi")
-metadata/speed = 1.0
+metadata/Weight = 1.0
+metadata/Size = 1.0
+metadata/Speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 1.00637)
-texture = ExtResource("1_cbp65")
-region_enabled = true
+texture = ExtResource("2_og5g1")
 region_rect = Rect2(0, 0, 128, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_53822")
+}
