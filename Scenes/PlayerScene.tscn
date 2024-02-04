@@ -5,6 +5,8 @@
 
 [sub_resource type="Animation" id="Animation_hj8c4"]
 resource_name = "Test"
+length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -12,10 +14,10 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.5708]
+"values": [0.0, -6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53822"]
@@ -30,6 +32,7 @@ metadata/Size = 1.0
 metadata/Speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -2.04709
 scale = Vector2(1, 1.00637)
 texture = ExtResource("2_og5g1")
 region_rect = Rect2(0, 0, 128, 128)
