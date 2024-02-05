@@ -11,5 +11,7 @@ itemList = Array[PackedScene]([ExtResource("2_su8k8")])
 spawningRange = 4.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_0y1yx")]
+speed = 10.0
+size = 1.0
+weight = 1.0
 level = NodePath("..")
-metadata/Speed = 10.0

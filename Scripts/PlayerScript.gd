@@ -1,19 +1,15 @@
 extends Area2D
 
-var speed: float = 0
-var size: float = 0
-var weight: float = 0
+@export var speed: float = 0
+@export var size: float = 0
+@export var weight: float = 0
 var objects = []
 @onready var defaultCameraZoom = $Camera2D.zoom
 const objectRelativeMinSpeed = 1.25
 @export var level: Node2D
 
 func _ready():
-	speed = get_meta("Speed")
-	size = get_meta("Size")
-	weight = get_meta("Weight")
-	scale.x = size
-	scale.y = size
+	scale = Vector2(size, size)
 	$AnimationPlayer.current_animation = "Test"
 	
 func _process(delta):
