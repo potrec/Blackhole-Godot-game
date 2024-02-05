@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://svayigmao0ta"]
+
+[ext_resource type="Texture2D" uid="uid://c066tigunhwds" path="res://Texture/chicken.png" id="1_6iwhy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4u6g"]
+radius = 5.0
+height = 10.0
+
+[node name="Food" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.51806
+shape = SubResource("CapsuleShape2D_f4u6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_6iwhy")

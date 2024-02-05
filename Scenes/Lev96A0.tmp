@@ -6,7 +6,7 @@
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0y1yx")]
-metadata/Speed = 10.0
+metadata/Speed = 1.0
 
 [node name="Food" parent="." instance=ExtResource("2_su8k8")]
 position = Vector2(26, 0)

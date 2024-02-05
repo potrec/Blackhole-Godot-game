@@ -1,3 +1,4 @@
 res://Scenes/PlayerScene.tscn
 res://Scenes/LevelScene.tscn
 res://Scripts/PlayerScript.gd
+res://Scenes/Food.tscn
