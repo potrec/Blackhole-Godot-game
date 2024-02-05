@@ -35,7 +35,7 @@ metadata/Size = 1.0
 metadata/Speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -3.92561
+rotation = -5.0063
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_og5g1")
 region_rect = Rect2(0, 0, 128, 128)

@@ -10,3 +10,12 @@ metadata/Speed = 10.0
 
 [node name="Food" parent="." instance=ExtResource("2_su8k8")]
 position = Vector2(26, 0)
+
+[node name="Food2" parent="." instance=ExtResource("2_su8k8")]
+position = Vector2(45, 0)
+
+[node name="Food3" parent="." instance=ExtResource("2_su8k8")]
+position = Vector2(26, -21)
+
+[node name="Food4" parent="." instance=ExtResource("2_su8k8")]
+position = Vector2(26, 27)

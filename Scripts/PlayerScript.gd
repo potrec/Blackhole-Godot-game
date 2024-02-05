@@ -4,6 +4,7 @@ var speed: float = 0
 var size: float = 0
 var weight: float = 0
 var objects = []
+@onready var defaultCameraZoom = $Camera2D.zoom
 const objectRelativeMinSpeed = 1.25
 func _ready():
 	speed = get_meta("Speed")
@@ -23,6 +24,8 @@ func _process(delta):
 		object.position += objectSpeed
 		if position.distance_to(object.position) < 1:
 			object.queue_free()
+			scale += Vector2(0.3,0.3)
+			$Camera2D.zoom = defaultCameraZoom / scale 
 			objects = objects.filter(func(e): return e != object)
 
 func _on_body_entered(body):
