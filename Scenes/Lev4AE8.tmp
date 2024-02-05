@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1e57c1s8rxmp"]
+
+[ext_resource type="PackedScene" uid="uid://4kxqj60t4vvb" path="res://Scenes/PlayerScene.tscn" id="1_0y1yx"]
+[ext_resource type="Script" path="res://Scenes/LevelScene.gd" id="1_8q8op"]
+[ext_resource type="PackedScene" uid="uid://svayigmao0ta" path="res://Scenes/Food.tscn" id="2_su8k8"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_8q8op")
+maxItemCount = 10
+itemList = Array[PackedScene]([ExtResource("2_su8k8")])
+spawningRange = 4.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_0y1yx")]
+speed = 10.0
+size = 1.0
+weight = 1.0
+level = NodePath("..")
