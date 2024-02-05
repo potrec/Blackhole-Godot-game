@@ -6,6 +6,8 @@ var weight: float = 0
 var objects = []
 @onready var defaultCameraZoom = $Camera2D.zoom
 const objectRelativeMinSpeed = 1.25
+@export var level: Node2D
+
 func _ready():
 	speed = get_meta("Speed")
 	size = get_meta("Size")
@@ -13,6 +15,7 @@ func _ready():
 	scale.x = size
 	scale.y = size
 	$AnimationPlayer.current_animation = "Test"
+	
 func _process(delta):
 	var direction = Input.get_vector("Left","Right","Up","Down")
 	var transport = speed*delta*direction
@@ -23,7 +26,7 @@ func _process(delta):
 			objectSpeed = objectSpeed.normalized()*transport.length()*objectRelativeMinSpeed
 		object.position += objectSpeed
 		if position.distance_to(object.position) < 1:
-			object.queue_free()
+			level.remove_food(object)
 			scale += Vector2(0.3,0.3)
 			$Camera2D.zoom = defaultCameraZoom / scale 
 			objects = objects.filter(func(e): return e != object)
