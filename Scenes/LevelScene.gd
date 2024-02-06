@@ -7,6 +7,7 @@ extends Node2D
 @export var foodResources: Array[FoodResource]
 @export var minDistanceBetweenFood: float
 @onready var playerArrowParent = player.get_node("ArrowParent")
+@onready var uiController = $Control
 var arrowTarget
 var arrowTargetDistance = 0
 var lastPickedFood
@@ -14,10 +15,12 @@ var lastPickedFood
 func _ready():
 	for i in range(maxItemCount):
 		create_food()
+	update_ui()
 	pass # Replace with function body.
 
 func _process(delta):
 	target_closest_food()
+	update_ui()
 
 func target_closest_food():
 	for food in aliveFoodList:
@@ -26,10 +29,14 @@ func target_closest_food():
 			arrowTargetDistance = player.position.distance_to(arrowTarget.position)
 			var angleToTarget = player.position.angle_to_point(arrowTarget.position)+PI/2.0
 			playerArrowParent.rotation = angleToTarget
-			
-func rotate_arrow_to_closest_food():
-	
-	pass
+
+func update_ui():
+	var massLabel = uiController.get_node("CanvasLayer/StatPanel/MassLabel")
+	var speedLabel = uiController.get_node("CanvasLayer/StatPanel/SpeedLabel")
+	var zoomLabel = uiController.get_node("CanvasLayer/StatPanel/ZoomLabel")
+	massLabel.text = str("mass: ",player.scale.x)
+	speedLabel.text = str("speed: ",player.speed)
+	zoomLabel.text = str("zoom: ",$Player.get_node("Camera2D").zoom.x)
 
 func remove_food(object):
 	object.queue_free()
