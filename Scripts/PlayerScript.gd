@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	var direction = Input.get_vector("Left","Right","Up","Down")
-	var transport = speed*delta*direction
+	var transport = speed*delta*direction*scale.x
 	position += transport
 	for object in objects:
 		var objectSpeed = (position - object.position).normalized()/position.distance_to(object.position)*delta*speed*$CollisionShape2D.shape.radius*scale.x
@@ -25,7 +25,7 @@ func _process(delta):
 		object.position += objectSpeed
 		if position.distance_to(object.position) < 1:
 			level.remove_food(object)
-			scale += Vector2(0.3,0.3)
+			scale += Vector2(object.foodResource.mass,object.foodResource.mass)
 			targetZoom = (defaultZoom / scale.x)
 			objects = objects.filter(func(e): return e != object)
 	if abs(currentZoom - targetZoom) > 0.01:

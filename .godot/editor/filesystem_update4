@@ -4,3 +4,8 @@ res://Scenes/PlayerScene.tscn
 res://Scenes/Food.tscn
 res://Scenes/LevelScene.gd
 res://Scenes/Food.gd
+res://Resources/FoodResource.gd
+res://Resources/heheNugget.tres
+res://Resources/KfcBucket.tres
+res://Resources/Zinger.tres
+res://Resources/ChickenNugget.tres

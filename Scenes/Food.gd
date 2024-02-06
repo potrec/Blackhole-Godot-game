@@ -1,10 +1,14 @@
 extends StaticBody2D
 
-# Called when the node enters the scene tree for the first time.
+@export var sprite: Sprite2D
+@export var foodResource: FoodResource
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	sprite.texture = foodResource.texture
+	$CollisionShape2D.shape.radius = 2.5
+	match (foodResource.foodTextureType):
+		foodResource.State.WIDE:
+			$CollisionShape2D.shape.height = 10
+		foodResource.State.SQUARE:
+			$CollisionShape2D.shape.height = 5
+	scale *= foodResource.mass*3
