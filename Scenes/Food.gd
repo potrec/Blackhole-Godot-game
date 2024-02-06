@@ -11,4 +11,4 @@ func _ready():
 			$CollisionShape2D.shape.height = 10
 		foodResource.State.SQUARE:
 			$CollisionShape2D.shape.height = 5
-	scale *= foodResource.mass*3
+	scale *= foodResource.mass

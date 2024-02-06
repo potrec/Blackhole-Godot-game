@@ -19,11 +19,13 @@ func _process(delta):
 	var transport = speed*delta*direction*scale.x
 	position += transport
 	for object in objects:
-		var objectSpeed = (position - object.position).normalized()/position.distance_to(object.position)*delta*speed*$CollisionShape2D.shape.radius*scale.x
+		if object.foodResource.mass > scale.x:
+			continue
+		var objectSpeed = (position - object.position).normalized()/position.distance_to(object.position)*delta*speed*$CollisionShape2D.shape.radius*scale.x*scale.x
 		if objectSpeed.length() < transport.length()*objectRelativeMinSpeed:
 			objectSpeed = objectSpeed.normalized()*transport.length()*objectRelativeMinSpeed
 		object.position += objectSpeed
-		if position.distance_to(object.position) < 1:
+		if position.distance_to(object.position) < scale.x:
 			level.remove_food(object)
 			scale += Vector2(object.foodResource.mass,object.foodResource.mass)
 			targetZoom = (defaultZoom / scale.x)

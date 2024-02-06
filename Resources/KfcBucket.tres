@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_orrot")
-mass = 1.0
+mass = 3.0
 texture = ExtResource("2_sm8lp")
 foodTextureType = 0

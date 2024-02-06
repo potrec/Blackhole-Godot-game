@@ -5,8 +5,6 @@
 
 [resource]
 script = ExtResource("1_0j36n")
-mass = 0.3
+mass = 2.0
 texture = ExtResource("2_1ero5")
-hitboxRadius = 2.5
-hitboxHeight = 10.0
 foodTextureType = 1
