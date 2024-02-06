@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=2 format=3 uid="uid://b1m6emboywvhn"]
+
+[sub_resource type="GDScript" id="GDScript_vr6wc"]
+script/source = "extends Resource
+
+class_name LevelResource
+
+@export var name: String
+@export var foodResources: Array[FoodResource]
+"
+
+[resource]
+script = SubResource("GDScript_vr6wc")
+name = ""
+foodResources = Array[Resource("res://Resources/Levels/Level1/FoodResources/FoodResource.gd")]([])

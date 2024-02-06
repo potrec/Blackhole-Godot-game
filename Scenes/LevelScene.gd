@@ -35,7 +35,7 @@ func update_ui():
 	var speedLabel = uiController.get_node("CanvasLayer/StatPanel/SpeedLabel")
 	var zoomLabel = uiController.get_node("CanvasLayer/StatPanel/ZoomLabel")
 	massLabel.text = str("mass: ",player.scale.x)
-	speedLabel.text = str("speed: ",player.speed)
+	speedLabel.text = str("target zoom: ",$Player.targetZoom)
 	zoomLabel.text = str("zoom: ",$Player.get_node("Camera2D").zoom.x)
 
 func remove_food(object):
