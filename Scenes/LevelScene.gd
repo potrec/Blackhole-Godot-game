@@ -47,12 +47,14 @@ func create_food():
 
 func set_valid_position(object):
 	var spawnRange = spawningRange*player.get_node("CollisionShape2D").shape.radius*player.scale.x
+	var i = 1
 	while true:
-		object.position = player.position + Vector2.from_angle(randf_range(0,deg_to_rad(360)))*spawnRange*randf_range(1,2)
+		object.position = player.position + Vector2.from_angle(randf_range(0,deg_to_rad(360)))*spawnRange*i
 		var canSpawn = true
 		for food in aliveFoodList:
 			if object.position.distance_to(food.position) < minDistanceBetweenFood*(object.scale.x+food.scale.x):
 				canSpawn = false
+				i+=1
 		if canSpawn:
 			return
 
@@ -61,7 +63,7 @@ func get_valid_food_resource():
 	var i = 0
 	while true:
 		foodResource = foodResources.pick_random()
-		print("food mass: ", foodResource.mass, " player scale: ", player.scale.x)
+		#print("food mass: ", foodResource.mass, " player scale: ", player.scale.x)
 		if foodResource.mass <= player.scale.x && foodResource.mass*2 >= player.scale.x:
 			lastPickedFood = foodResource
 			return foodResource

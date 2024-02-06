@@ -1,5 +1,7 @@
-Node2D
+ParallaxLayer
 Sprite2D
+ParallaxBackground
+Node2D
 Area2D
 StaticBody2D
 CollisionShape2D
