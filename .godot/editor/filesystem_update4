@@ -3,3 +3,4 @@ res://Scripts/PlayerScript.gd
 res://Scenes/PlayerScene.tscn
 res://Scenes/Food.tscn
 res://Scenes/LevelScene.gd
+res://Scenes/Food.gd

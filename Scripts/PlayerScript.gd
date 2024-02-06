@@ -13,7 +13,7 @@ const objectRelativeMinSpeed = 1.25
 
 func _ready():
 	$AnimationPlayer.current_animation = "Test"
-	
+
 func _process(delta):
 	var direction = Input.get_vector("Left","Right","Up","Down")
 	var transport = speed*delta*direction
@@ -25,15 +25,15 @@ func _process(delta):
 		object.position += objectSpeed
 		if position.distance_to(object.position) < 1:
 			level.remove_food(object)
-			scale += Vector2(1,1)
+			scale += Vector2(0.3,0.3)
 			targetZoom = (defaultZoom / scale.x)
 			objects = objects.filter(func(e): return e != object)
 	if abs(currentZoom - targetZoom) > 0.01:
 		camera_zoom(delta)
-		
+
 func _on_body_entered(body):
 	objects.push_back(body)
-	
+
 func camera_zoom(delta):
 	currentZoom = lerp(currentZoom, targetZoom, zoomSpeed * delta)
 	$Camera2D.zoom = Vector2(currentZoom, currentZoom)
