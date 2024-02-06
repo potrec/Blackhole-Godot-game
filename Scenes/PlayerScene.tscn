@@ -51,7 +51,9 @@ zoom = Vector2(10, 10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jjp6w")
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="ArrowParent" type="Node2D" parent="."]
+
+[node name="Arrow" type="Sprite2D" parent="ArrowParent"]
 position = Vector2(0, -7)
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_li7ni")

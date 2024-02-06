@@ -6,9 +6,11 @@ extends Node2D
 @export var spawningRange: float
 @export var foodResources: Array[FoodResource]
 @export var minDistanceBetweenFood: float
+@onready var playerArrowParent = player.get_node("ArrowParent")
 var arrowTarget
 var arrowTargetDistance = 0
-	
+var lastPickedFood
+
 func _ready():
 	for i in range(maxItemCount):
 		create_food()
@@ -20,11 +22,13 @@ func _process(delta):
 func target_closest_food():
 	for food in aliveFoodList:
 		if (arrowTargetDistance > player.position.distance_to(food.position) || arrowTarget == food || arrowTargetDistance == 0):
-			arrowTargetDistance = player.position.distance_to(food.position)
 			arrowTarget = food
-			print(arrowTargetDistance)
-
+			arrowTargetDistance = player.position.distance_to(arrowTarget.position)
+			var angleToTarget = player.position.angle_to_point(arrowTarget.position)+PI/2.0
+			playerArrowParent.rotation = angleToTarget
+			
 func rotate_arrow_to_closest_food():
+	
 	pass
 
 func remove_food(object):
@@ -54,14 +58,14 @@ func set_valid_position(object):
 
 func get_valid_food_resource():
 	var foodResource
-	var i = 0 
+	var i = 0
 	while true:
 		foodResource = foodResources.pick_random()
-		if foodResource.mass < player.scale.x * 5  && foodResource.mass * 5 > player.scale.x:
+		print("food mass: ", foodResource.mass, " player scale: ", player.scale.x)
+		if foodResource.mass <= player.scale.x && foodResource.mass*2 >= player.scale.x:
+			lastPickedFood = foodResource
 			return foodResource
-		elif i >= 10:
-			print("spawn last food")
-			foodResource = foodResources.back()
-			foodResource.mass *= 2
-			return foodResource
-		i += 1
+		elif i > 100:
+			print("print last food")
+			return lastPickedFood
+		i+=1

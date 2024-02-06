@@ -13,7 +13,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8q8op")
-maxItemCount = 2
+maxItemCount = 10
 food = ExtResource("2_su8k8")
 spawningRange = 4.0
 foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("3_x4ks7"), ExtResource("4_g5fr2"), ExtResource("5_gf4wn"), ExtResource("6_0nwd7"), ExtResource("7_o2bhr"), ExtResource("8_wht6p"), ExtResource("9_yo1gv")])
