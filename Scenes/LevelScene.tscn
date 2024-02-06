@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1e57c1s8rxmp"]
+[gd_scene load_steps=11 format=3 uid="uid://c1e57c1s8rxmp"]
 
 [ext_resource type="PackedScene" uid="uid://4kxqj60t4vvb" path="res://Scenes/PlayerScene.tscn" id="1_0y1yx"]
 [ext_resource type="Script" path="res://Scenes/LevelScene.gd" id="1_8q8op"]
@@ -9,13 +9,14 @@
 [ext_resource type="Resource" uid="uid://eyw384fpcvp1" path="res://Resources/ChickenNugget2.tres" id="6_0nwd7"]
 [ext_resource type="Resource" uid="uid://cw5fnwqr2mohj" path="res://Resources/ChickenNugget3.tres" id="7_o2bhr"]
 [ext_resource type="Resource" uid="uid://b1xoujmxxl15g" path="res://Resources/ChickenNugget4.tres" id="8_wht6p"]
+[ext_resource type="Resource" uid="uid://bdqhrqhpavntd" path="res://Resources/ChickenNugget5.tres" id="9_yo1gv"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8q8op")
-maxItemCount = 10
+maxItemCount = 2
 food = ExtResource("2_su8k8")
 spawningRange = 4.0
-foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("3_x4ks7"), ExtResource("4_g5fr2"), ExtResource("5_gf4wn"), ExtResource("6_0nwd7"), ExtResource("7_o2bhr"), ExtResource("8_wht6p")])
+foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("3_x4ks7"), ExtResource("4_g5fr2"), ExtResource("5_gf4wn"), ExtResource("6_0nwd7"), ExtResource("7_o2bhr"), ExtResource("8_wht6p"), ExtResource("9_yo1gv")])
 minDistanceBetweenFood = 5.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_0y1yx")]

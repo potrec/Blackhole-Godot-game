@@ -27,7 +27,7 @@ func _process(delta):
 		object.position += objectSpeed
 		if position.distance_to(object.position) < scale.x:
 			level.remove_food(object)
-			scale += Vector2(object.foodResource.mass,object.foodResource.mass)
+			scale += Vector2(object.foodResource.mass,object.foodResource.mass)*0.1
 			targetZoom = (defaultZoom / scale.x)
 			objects = objects.filter(func(e): return e != object)
 	if abs(currentZoom - targetZoom) > 0.01:
@@ -37,7 +37,7 @@ func _on_body_entered(body):
 	objects.push_back(body)
 
 func camera_zoom(delta):
-	currentZoom = lerp(currentZoom, targetZoom, zoomSpeed * delta)
+	currentZoom = lerp(currentZoom, targetZoom, zoomSpeed * delta * scale.x)
 	$Camera2D.zoom = Vector2(currentZoom, currentZoom)
 
 
