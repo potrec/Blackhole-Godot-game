@@ -31,6 +31,9 @@ radius = 5.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("2_45rgi")
+speed = 1.0
+size = 1.0
+weight = 1.0
 metadata/Weight = 1.0
 metadata/Size = 1.0
 metadata/Speed = 100.0

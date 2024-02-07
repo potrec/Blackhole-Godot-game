@@ -10,7 +10,7 @@ const objectRelativeMinSpeed = 1.25
 @onready var defaultZoom: float = $Camera2D.zoom.x
 @onready var targetZoom: float = $Camera2D.zoom.x
 @export var zoomSpeed: float = 10.0
-
+@onready var parallaxBackground: ParallaxBackground
 func _ready():
 	$AnimationPlayer.current_animation = "Test"
 
@@ -41,5 +41,6 @@ func camera_zoom(delta):
 	if(currentZoom < targetZoom):
 		currentZoom = targetZoom
 	$Camera2D.zoom = Vector2(currentZoom, currentZoom)
+	
 
 
