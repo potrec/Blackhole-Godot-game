@@ -8,6 +8,7 @@ extends Node2D
 @export var minDistanceBetweenFood: float
 @onready var playerArrowParent = $Player.get_node("ArrowParent")
 @onready var uiController = $Control
+@onready var parallaxBackground = $ParallaxBackground
 var arrowTarget
 var arrowTargetDistance = 0
 var lastPickedFood
@@ -19,8 +20,21 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	#TODO: CHECK REGION INCREASE
 	target_closest_food()
 	update_ui()
+	var backgroundLayer = parallaxBackground.get_node("BackgroundLayer")
+	var sprite2D = backgroundLayer.get_node("Sprite2D")
+	#var mirroring = backgroundLayer.motion_mirroring
+	#mirroring.x *= 1.1
+	#mirroring.y *= 1.1
+	#sprite2D.set_region_rect()
+	var current_rect = sprite2D.region_rect
+	var new_width = current_rect.size.x *  1.001  # Double the width
+	var new_height = current_rect.size.y *  1.001  # Double the height
+	var new_rect = Rect2(current_rect.position, Vector2(new_width, new_height))
+	sprite2D.region_rect = new_rect
+	print(sprite2D.region_rect)
 	
 func target_closest_food():
 	for food in aliveFoodList:

@@ -19,13 +19,12 @@ foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource(
 minDistanceBetweenFood = 5.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enabled = true
 
 [node name="BackgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
 texture_repeat = 2
 motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(12000, 8000)
+motion_mirroring = Vector2(10, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
 texture_filter = 1
@@ -33,7 +32,7 @@ texture_repeat = 2
 texture = ExtResource("11_fcp7i")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 12000, 8000)
+region_rect = Rect2(0, 0, 10, 10)
 region_filter_clip_enabled = true
 
 [node name="ParticlesLayer" type="ParallaxLayer" parent="ParallaxBackground"]
