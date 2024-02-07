@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://svayigmao0ta"]
 
 [ext_resource type="Script" path="res://Scenes/Food.gd" id="1_8tu0b"]
-[ext_resource type="Resource" path="res://Resources/Levels/Level1/FoodResources/ChickenNugget.tres" id="2_usg63"]
+[ext_resource type="Resource" uid="uid://b0qnboki0dqx8" path="res://Resources/ChickenNugget.tres" id="2_usg63"]
 [ext_resource type="Texture2D" uid="uid://cfa641moq6j3e" path="res://Texture/kfcBucket.png" id="3_n7ybw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4u6g"]

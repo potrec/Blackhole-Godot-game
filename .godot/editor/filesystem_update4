@@ -1,8 +1,6 @@
-res://Scenes/Food.tscn
-res://Scenes/Food.gd
-res://Resources/FoodResource.gd
 res://Scenes/PlayerScene.tscn
+res://Resources/FoodResource.gd
+res://Scenes/Food.gd
 res://Scenes/UiScene.tscn
-res://Scenes/LevelScene.gd
-res://Scenes/MenuScene.tscn
-res://Scripts/PlayerScript.gd
+res://Scenes/LevelScene.tscn
+res://Scenes/Food.tscn

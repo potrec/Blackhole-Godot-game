@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1e57c1s8rxmp"]
+[gd_scene load_steps=9 format=3 uid="uid://c1e57c1s8rxmp"]
 
-[ext_resource type="PackedScene" uid="uid://4kxqj60t4vvb" path="res://Scenes/PlayerScene.tscn" id="1_0y1yx"]
+[ext_resource type="PackedScene" uid="uid://svayigmao0ta" path="res://Scenes/Food.tscn" id="1_0y1yx"]
 [ext_resource type="Script" path="res://Scenes/LevelScene.gd" id="1_8q8op"]
-[ext_resource type="PackedScene" uid="uid://svayigmao0ta" path="res://Scenes/Food.tscn" id="2_su8k8"]
 [ext_resource type="Resource" uid="uid://b0qnboki0dqx8" path="res://Resources/ChickenNugget.tres" id="3_x4ks7"]
 [ext_resource type="Resource" uid="uid://bjq5ihdx7114y" path="res://Resources/KfcBucket.tres" id="4_g5fr2"]
 [ext_resource type="Resource" uid="uid://c4fdntdp5mle0" path="res://Resources/Zinger.tres" id="5_gf4wn"]
@@ -13,16 +12,12 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8q8op")
 maxItemCount = 100
-food = ExtResource("2_su8k8")
+food = ExtResource("1_0y1yx")
 spawningRange = 4.0
 foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("3_x4ks7"), ExtResource("4_g5fr2"), ExtResource("5_gf4wn")])
 minDistanceBetweenFood = 5.0
 
-[node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_0y1yx")]
-speed = 10.0
-size = 1.0
-weight = 1.0
-level = NodePath("..")
+[node name="Player" parent="." instance=ExtResource("1_0y1yx")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
