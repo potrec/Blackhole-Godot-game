@@ -9,29 +9,24 @@ extends Node2D
 @onready var playerArrowParent = $Player.get_node("ArrowParent")
 @onready var uiController = $Control
 @onready var parallaxBackground = $ParallaxBackground
-var arrowTarget
-var arrowTargetDistance = 0
-var lastPickedFood
 @onready var backgroundLayer = parallaxBackground.get_node("BackgroundLayer")
 @onready var sprite2D = backgroundLayer.get_node("Sprite2D")
 @onready var defaultRegionScale = sprite2D.region_rect
 @onready var defaultRegionWidth = defaultRegionScale.size.x
 @onready var defaultRegionHeight = defaultRegionScale.size.y
+var arrowTarget
+var arrowTargetDistance = 0
+var lastPickedFood
+
 func _ready():
 	for i in range(maxItemCount):
 		create_food()
 	update_ui()
-	pass # Replace with function body.
 
 func _process(delta):
-	#TODO: CHECK REGION INCREASE
 	target_closest_food()
 	update_ui()
 	increase_background_region()
-	#var mirroring = backgroundLayer.motion_mirroring
-	#mirroring.x *= 1.1
-	#mirroring.y *= 1.1
-	#sprite2D.set_region_rect()
 	
 func target_closest_food():
 	for food in aliveFoodList:
@@ -94,5 +89,4 @@ func increase_background_region():
 	var new_height = defaultRegionHeight *  targetRegionScale
 	var new_rect = Rect2(current_rect.position, Vector2(new_width, new_height))
 	sprite2D.region_rect = new_rect
-	print(current_rect)
 	
