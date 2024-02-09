@@ -30,6 +30,7 @@ func _process(delta):
 			scale += Vector2(object.foodResource.mass,object.foodResource.mass)*0.1
 			targetZoom = (defaultZoom / scale.x)
 			objects = objects.filter(func(e): return e != object)
+			
 	if currentZoom/targetZoom > 1.01:
 		camera_zoom(delta)
 
@@ -41,6 +42,5 @@ func camera_zoom(delta):
 	if(currentZoom < targetZoom):
 		currentZoom = targetZoom
 	$Camera2D.zoom = Vector2(currentZoom, currentZoom)
-	
 
 

@@ -12,7 +12,11 @@ extends Node2D
 var arrowTarget
 var arrowTargetDistance = 0
 var lastPickedFood
-
+@onready var backgroundLayer = parallaxBackground.get_node("BackgroundLayer")
+@onready var sprite2D = backgroundLayer.get_node("Sprite2D")
+@onready var defaultRegionScale = sprite2D.region_rect
+@onready var defaultRegionWidth = defaultRegionScale.size.x
+@onready var defaultRegionHeight = defaultRegionScale.size.y
 func _ready():
 	for i in range(maxItemCount):
 		create_food()
@@ -23,18 +27,11 @@ func _process(delta):
 	#TODO: CHECK REGION INCREASE
 	target_closest_food()
 	update_ui()
-	var backgroundLayer = parallaxBackground.get_node("BackgroundLayer")
-	var sprite2D = backgroundLayer.get_node("Sprite2D")
+	increase_background_region()
 	#var mirroring = backgroundLayer.motion_mirroring
 	#mirroring.x *= 1.1
 	#mirroring.y *= 1.1
 	#sprite2D.set_region_rect()
-	var current_rect = sprite2D.region_rect
-	var new_width = current_rect.size.x *  1.001  # Double the width
-	var new_height = current_rect.size.y *  1.001  # Double the height
-	var new_rect = Rect2(current_rect.position, Vector2(new_width, new_height))
-	sprite2D.region_rect = new_rect
-	print(sprite2D.region_rect)
 	
 func target_closest_food():
 	for food in aliveFoodList:
@@ -56,6 +53,7 @@ func remove_food(object):
 	arrowTargetDistance = 0
 	create_food()
 	target_closest_food()
+	increase_background_region()
 
 func create_food():
 	var newObject = food.instantiate()
@@ -88,3 +86,13 @@ func get_valid_food_resource():
 		elif i > 100:
 			return lastPickedFood
 		i+=1
+
+func increase_background_region():
+	var targetRegionScale = defaultRegionScale.size.x * player.scale.x
+	var current_rect = sprite2D.region_rect
+	var new_width = defaultRegionWidth *  targetRegionScale
+	var new_height = defaultRegionHeight *  targetRegionScale
+	var new_rect = Rect2(current_rect.position, Vector2(new_width, new_height))
+	sprite2D.region_rect = new_rect
+	print(current_rect)
+	

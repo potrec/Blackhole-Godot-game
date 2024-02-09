@@ -23,13 +23,15 @@ minDistanceBetweenFood = 5.0
 [node name="BackgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
 texture_repeat = 2
+motion_mirroring = Vector2(1500, 1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("11_fcp7i")
+centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 1500, 1000)
+region_rect = Rect2(0, 0, 15, 10)
 region_filter_clip_enabled = true
 
 [node name="ParticlesLayer" type="ParallaxLayer" parent="ParallaxBackground"]
