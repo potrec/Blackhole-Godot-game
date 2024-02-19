@@ -1,9 +1,4 @@
-res://Scenes/LevelScene.tscn
-res://Resources/FoodResource.gd
-res://Scenes/Food.gd
-res://Scenes/LevelScene.gd
-res://Scenes/PlayerScene.tscn
-res://Scenes/UiScene.tscn
-res://Scenes/Food.tscn
-res://Scripts/PlayerScript.gd
 res://Scenes/MenuScene.tscn
+res://Resources/Theme/GameTheme.tres
+res://Resources/FoodResource.gd
+res://Scenes/UiScene.tscn
