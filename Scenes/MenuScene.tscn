@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0i88i686o6ob"]
+[gd_scene load_steps=3 format=3 uid="uid://d0i88i686o6ob"]
 
 [ext_resource type="Script" path="res://Scripts/MenuScript.gd" id="1_4iwg6"]
+[ext_resource type="Script" path="res://Scripts/PlayButtonScript.gd" id="2_tf87p"]
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("playButton", "optionButton", "exitButton")]
 script = ExtResource("1_4iwg6")
+playButton = NodePath("CanvasLayer/PanelContainer/Panel/GridContainer/PlayButton")
+optionButton = NodePath("CanvasLayer/PanelContainer/Panel/GridContainer/OptionsButton")
+exitButton = NodePath("CanvasLayer/PanelContainer/Panel/GridContainer/ExitButton")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -11,7 +15,7 @@ anchor_mode = 0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -37,6 +41,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 action_mode = 0
 text = "PLAY"
+script = ExtResource("2_tf87p")
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer/PanelContainer/Panel/GridContainer"]
