@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapResource" load_steps=3 format=3 uid="uid://dywxv4ttst63x"]
+
+[ext_resource type="Script" path="res://Resources/Maps/MapResource.gd" id="1_73kx1"]
+[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="1_fvjxa"]
+
+[resource]
+script = ExtResource("1_73kx1")
+enterMass = 0.0
+endMass = 10.0
+mapTexture = ExtResource("1_fvjxa")
+foodResources = Array[Resource("res://Resources/FoodResource.gd")]([])

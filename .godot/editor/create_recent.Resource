@@ -1,2 +1,4 @@
-Theme
+MapResource
+FoodResource
 Resource
+Theme

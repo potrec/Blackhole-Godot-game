@@ -17,6 +17,7 @@ extends Node2D
 var arrowTarget
 var arrowTargetDistance = 0
 var lastPickedFood
+@export var mapResources: Array[MapResource]
 
 func _ready():
 	for i in range(maxItemCount):
