@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://b60o85xlfra63"]
+
+[ext_resource type="Script" path="res://Resources/FoodResource.gd" id="1_bu1sd"]
+[ext_resource type="Texture2D" uid="uid://vxwffuvk4exe" path="res://Texture/Bacteria/bacteria_type_3.png" id="2_a146g"]
+
+[resource]
+script = ExtResource("1_bu1sd")
+mass = 4.0
+texture = ExtResource("2_a146g")
+foodTextureType = 1

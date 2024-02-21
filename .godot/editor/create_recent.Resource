@@ -1,4 +1,4 @@
-MapResource
 FoodResource
+MapResource
 Resource
 Theme

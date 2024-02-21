@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="MapResource" load_steps=3 format=3 uid="uid://dywxv4ttst63x"]
+[gd_resource type="Resource" script_class="MapResource" load_steps=6 format=3 uid="uid://dywxv4ttst63x"]
 
+[ext_resource type="Resource" uid="uid://bubolfbq0m7l6" path="res://Resources/Maps/Map1/FoodResources/Bacteria1.tres" id="1_4n4lk"]
 [ext_resource type="Script" path="res://Resources/Maps/MapResource.gd" id="1_73kx1"]
-[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="1_fvjxa"]
+[ext_resource type="Texture2D" uid="uid://b2ywklfotj011" path="res://Texture/Map/BacteriaMap.png" id="1_p3kjj"]
+[ext_resource type="Resource" uid="uid://cq87kpxwdrbe8" path="res://Resources/Maps/Map1/FoodResources/Bacteria2.tres" id="2_8aj7f"]
+[ext_resource type="Resource" uid="uid://b60o85xlfra63" path="res://Resources/Maps/Map1/FoodResources/Bacteria3.tres" id="3_fpngs"]
 
 [resource]
 script = ExtResource("1_73kx1")
 enterMass = 0.0
 endMass = 10.0
-mapTexture = ExtResource("1_fvjxa")
-foodResources = Array[Resource("res://Resources/FoodResource.gd")]([])
+mapTexture = ExtResource("1_p3kjj")
+foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("1_4n4lk"), ExtResource("2_8aj7f"), ExtResource("3_fpngs")])

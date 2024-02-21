@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MapResource" load_steps=6 format=3 uid="uid://cfq4if2onjhbp"]
+
+[ext_resource type="Resource" uid="uid://c4fdntdp5mle0" path="res://Resources/Maps/Map1/FoodResources/Zinger.tres" id="1_2aoyb"]
+[ext_resource type="Resource" uid="uid://bjq5ihdx7114y" path="res://Resources/Maps/Map1/FoodResources/KfcBucket.tres" id="2_eipwv"]
+[ext_resource type="Resource" uid="uid://b0qnboki0dqx8" path="res://Resources/Maps/Map1/FoodResources/ChickenNugget.tres" id="3_ev0fm"]
+[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="4_8ym83"]
+[ext_resource type="Script" path="res://Resources/Maps/MapResource.gd" id="5_51bdg"]
+
+[resource]
+script = ExtResource("5_51bdg")
+enterMass = 0.0
+endMass = 10.0
+mapTexture = ExtResource("4_8ym83")
+foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("1_2aoyb"), ExtResource("2_eipwv"), ExtResource("3_ev0fm")])

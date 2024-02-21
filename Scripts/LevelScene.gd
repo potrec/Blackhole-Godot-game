@@ -18,11 +18,13 @@ var arrowTarget
 var arrowTargetDistance = 0
 var lastPickedFood
 @export var mapResources: Array[MapResource]
+var currentMapId = 0
 
 func _ready():
+	update_ui()
+	update_map(currentMapId)
 	for i in range(maxItemCount):
 		create_food()
-	update_ui()
 
 func _process(delta):
 	target_closest_food()
@@ -31,7 +33,7 @@ func _process(delta):
 	
 func target_closest_food():
 	for food in aliveFoodList:
-		if (arrowTargetDistance > player.position.distance_to(food.position) || arrowTarget == food || arrowTargetDistance == 0):
+		if ((arrowTargetDistance > player.position.distance_to(food.position) || arrowTarget == food || arrowTargetDistance == 0) && food.foodResource.mass <= player.scale.x):
 			arrowTarget = food
 			arrowTargetDistance = player.position.distance_to(arrowTarget.position)
 			var angleToTarget = player.position.angle_to_point(arrowTarget.position)+PI/2.0
@@ -72,16 +74,7 @@ func set_valid_position(object):
 			return
 
 func get_valid_food_resource():
-	var foodResource
-	var i = 0
-	while true:
-		foodResource = foodResources.pick_random()
-		if foodResource.mass <= player.scale.x && foodResource.mass*2 >= player.scale.x:
-			lastPickedFood = foodResource
-			return foodResource
-		elif i > 100:
-			return lastPickedFood
-		i+=1
+	return foodResources.pick_random()
 
 func increase_background_region():
 	var targetRegionScale = defaultRegionScale.size.x * player.scale.x
@@ -90,4 +83,7 @@ func increase_background_region():
 	var new_height = defaultRegionHeight *  targetRegionScale
 	var new_rect = Rect2(current_rect.position, Vector2(new_width, new_height))
 	sprite2D.region_rect = new_rect
-	
+
+func update_map(i):
+	sprite2D.set_texture(mapResources[i].mapTexture)
+	foodResources = mapResources[i].foodResources

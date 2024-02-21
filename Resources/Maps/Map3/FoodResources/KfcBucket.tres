@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://bf707r0a10x6a"]
+
+[ext_resource type="Script" path="res://Resources/FoodResource.gd" id="1_yj438"]
+[ext_resource type="Texture2D" uid="uid://cfa641moq6j3e" path="res://Texture/kfcBucket.png" id="2_vh88o"]
+
+[resource]
+script = ExtResource("1_yj438")
+mass = 3.0
+texture = ExtResource("2_vh88o")
+foodTextureType = 0

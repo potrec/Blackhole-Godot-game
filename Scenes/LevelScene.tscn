@@ -1,22 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1e57c1s8rxmp"]
+[gd_scene load_steps=15 format=3 uid="uid://c1e57c1s8rxmp"]
 
 [ext_resource type="PackedScene" uid="uid://svayigmao0ta" path="res://Scenes/Food.tscn" id="1_0y1yx"]
 [ext_resource type="Script" path="res://Scripts/LevelScene.gd" id="1_8q8op"]
-[ext_resource type="Resource" uid="uid://b0qnboki0dqx8" path="res://Resources/Maps/Map1/FoodResources/ChickenNugget.tres" id="3_x4ks7"]
-[ext_resource type="Resource" uid="uid://bjq5ihdx7114y" path="res://Resources/Maps/Map1/FoodResources/KfcBucket.tres" id="4_g5fr2"]
-[ext_resource type="Resource" uid="uid://c4fdntdp5mle0" path="res://Resources/Maps/Map1/FoodResources/Zinger.tres" id="5_gf4wn"]
+[ext_resource type="Script" path="res://Resources/FoodResource.gd" id="3_x02o8"]
+[ext_resource type="Texture2D" uid="uid://c066tigunhwds" path="res://Texture/chicken.png" id="4_4opu2"]
+[ext_resource type="Texture2D" uid="uid://cfa641moq6j3e" path="res://Texture/kfcBucket.png" id="5_5u3pi"]
+[ext_resource type="Texture2D" uid="uid://n2hgnjy316jv" path="res://Texture/zinger.png" id="6_lxl4q"]
+[ext_resource type="Resource" uid="uid://dywxv4ttst63x" path="res://Resources/Maps/Map1/MapResource1.tres" id="7_hkejh"]
+[ext_resource type="Resource" uid="uid://cvkw0mljui3xk" path="res://Resources/Maps/Map2/MapResource2.tres" id="8_hkjn2"]
 [ext_resource type="PackedScene" uid="uid://4kxqj60t4vvb" path="res://Scenes/PlayerScene.tscn" id="9_7pjft"]
 [ext_resource type="PackedScene" uid="uid://dcgq16xfte1yk" path="res://Scenes/UiScene.tscn" id="9_8mrj5"]
-[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="11_fcp7i"]
 [ext_resource type="Texture2D" uid="uid://cy4pb1j0m8v8j" path="res://Texture/flowerGrassTexture.png" id="12_ykuui"]
+
+[sub_resource type="Resource" id="Resource_5r5nx"]
+script = ExtResource("3_x02o8")
+mass = 2.0
+texture = ExtResource("4_4opu2")
+foodTextureType = 1
+
+[sub_resource type="Resource" id="Resource_vyb0h"]
+script = ExtResource("3_x02o8")
+mass = 3.0
+texture = ExtResource("5_5u3pi")
+foodTextureType = 0
+
+[sub_resource type="Resource" id="Resource_law7d"]
+script = ExtResource("3_x02o8")
+mass = 1.0
+texture = ExtResource("6_lxl4q")
+foodTextureType = 0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8q8op")
 maxItemCount = 100
 food = ExtResource("1_0y1yx")
 spawningRange = 4.0
-foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("3_x4ks7"), ExtResource("4_g5fr2"), ExtResource("5_gf4wn")])
+foodResources = Array[ExtResource("3_x02o8")]([SubResource("Resource_5r5nx"), SubResource("Resource_vyb0h"), SubResource("Resource_law7d")])
 minDistanceBetweenFood = 5.0
+mapResources = Array[Resource("res://Resources/Maps/MapResource.gd")]([ExtResource("7_hkejh"), ExtResource("8_hkjn2")])
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -27,7 +48,6 @@ texture_repeat = 2
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
 texture_filter = 1
 texture_repeat = 2
-texture = ExtResource("11_fcp7i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1500, 1000)
 region_filter_clip_enabled = true
