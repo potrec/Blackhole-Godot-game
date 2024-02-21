@@ -13,3 +13,4 @@ res://Resources/Maps/Map1/FoodResources/Bacteria1.tres
 res://Resources/Maps/Map1/FoodResources/Bacteria2.tres
 res://Resources/Maps/Map1/FoodResources/Bacteria3.tres
 res://Scripts/LevelScene.gd
+res://Scripts/PlayerScript.gd

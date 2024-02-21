@@ -35,7 +35,8 @@ func _process(delta):
 		camera_zoom(delta)
 
 func _on_body_entered(body):
-	objects.push_back(body)
+	if(body.foodResource.mass <= scale.x):
+		objects.push_back(body)
 
 func camera_zoom(delta):
 	currentZoom = lerp(currentZoom, targetZoom, zoomSpeed * delta)
