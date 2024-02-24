@@ -1,17 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://svayigmao0ta"]
+[gd_scene load_steps=7 format=3 uid="uid://svayigmao0ta"]
 
-[ext_resource type="Script" path="res://Scenes/Food.gd" id="1_8tu0b"]
-[ext_resource type="Resource" uid="uid://b0qnboki0dqx8" path="res://Resources/ChickenNugget.tres" id="2_usg63"]
+[ext_resource type="Script" path="res://Scripts/FoodScript.gd" id="1_w6mj0"]
+[ext_resource type="Script" path="res://Resources/FoodResource.gd" id="2_e6bbk"]
+[ext_resource type="Texture2D" uid="uid://c066tigunhwds" path="res://Texture/chicken.png" id="3_lx0b8"]
 [ext_resource type="Texture2D" uid="uid://cfa641moq6j3e" path="res://Texture/kfcBucket.png" id="3_n7ybw"]
+
+[sub_resource type="Resource" id="Resource_5r5nx"]
+script = ExtResource("2_e6bbk")
+mass = 2.0
+texture = ExtResource("3_lx0b8")
+foodTextureType = 1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4u6g"]
 radius = 2.5
 height = 5.0
 
 [node name="Food" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
-script = ExtResource("1_8tu0b")
+script = ExtResource("1_w6mj0")
 sprite = NodePath("Sprite2D")
-foodResource = ExtResource("2_usg63")
+foodResource = SubResource("Resource_5r5nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -15,6 +15,7 @@ func _ready():
 	$AnimationPlayer.current_animation = "Test"
 
 func _process(delta):
+	
 	var direction = Input.get_vector("Left","Right","Up","Down")
 	var transport = speed*delta*direction*scale.x
 	position += transport
@@ -35,7 +36,8 @@ func _process(delta):
 		camera_zoom(delta)
 
 func _on_body_entered(body):
-	objects.push_back(body)
+	if(body.foodResource.mass <= scale.x):
+		objects.push_back(body)
 
 func camera_zoom(delta):
 	currentZoom = lerp(currentZoom, targetZoom, zoomSpeed * delta)

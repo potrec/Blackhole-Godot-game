@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dl0x25ifsefn8"]
+
+[ext_resource type="Texture2D" uid="uid://da32w8t0yw88r" path="res://Texture/UI/Buttons/Button_1_disabled.png" id="1_3ui7e"]
+[ext_resource type="FontFile" uid="uid://c4xmqua75gct0" path="res://Resources/Font/Poppins/Poppins-Black.ttf" id="1_r7njo"]
+[ext_resource type="Texture2D" uid="uid://c1mxayk75xem0" path="res://Texture/UI/Buttons/Button_1_normal.png" id="2_jijwg"]
+[ext_resource type="Texture2D" uid="uid://ldv7wafap027" path="res://Texture/UI/Buttons/Button_1_pressed.png" id="3_kwgfe"]
+[ext_resource type="Texture2D" uid="uid://b81l361x2opu5" path="res://Texture/UI/Panels/Panel_1.png" id="5_l8el7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wvbh"]
+texture = ExtResource("1_3ui7e")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3nyt7"]
+load_path = "res://.godot/imported/Button_1_hover.png-72529161da9168842f288b40c6212086.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btwcy"]
+texture = SubResource("CompressedTexture2D_3nyt7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f34qa"]
+texture = ExtResource("2_jijwg")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxfl6"]
+texture = ExtResource("3_kwgfe")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w228"]
+texture = ExtResource("5_l8el7")
+texture_margin_left = 24.0
+texture_margin_top = 18.0
+texture_margin_right = 24.0
+texture_margin_bottom = 18.0
+
+[resource]
+Button/fonts/font = ExtResource("1_r7njo")
+Button/styles/disabled = SubResource("StyleBoxTexture_5wvbh")
+Button/styles/hover = SubResource("StyleBoxTexture_btwcy")
+Button/styles/normal = SubResource("StyleBoxTexture_f34qa")
+Button/styles/pressed = SubResource("StyleBoxTexture_hxfl6")
+Label/fonts/font = ExtResource("1_r7njo")
+Panel/styles/panel = SubResource("StyleBoxTexture_2w228")

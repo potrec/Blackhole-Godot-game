@@ -1,8 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://4kxqj60t4vvb"]
+[gd_scene load_steps=11 format=3 uid="uid://4kxqj60t4vvb"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="2_45rgi"]
+[ext_resource type="Shader" path="res://Resources/Shaders/BlackholeShader.gdshader" id="2_74n3g"]
 [ext_resource type="Texture2D" uid="uid://dk6wscd5j6b5t" path="res://Texture/blackhole.png" id="2_og5g1"]
 [ext_resource type="Texture2D" uid="uid://csx31u7yppspu" path="res://Texture/arrow.png" id="3_li7ni"]
+
+[sub_resource type="Curve" id="Curve_jqpyq"]
+min_value = -1.0
+_data = [Vector2(0.00170648, 0.517768), 0.0, 0.0, 0, 0, Vector2(0.124573, 0.0760598), 0.0, 0.0, 0, 0, Vector2(0.230375, 1), 0.0, 0.0, 0, 0, Vector2(0.322526, 0.813591), -2.67152, -2.67152, 0, 0, Vector2(0.424915, 0.351621), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ywjt0"]
+curve = SubResource("Curve_jqpyq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7iom8"]
+shader = ExtResource("2_74n3g")
+shader_parameter/curve = SubResource("CurveTexture_ywjt0")
 
 [sub_resource type="Animation" id="Animation_hj8c4"]
 resource_name = "Test"
@@ -39,9 +52,16 @@ metadata/Size = 1.0
 metadata/Speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7iom8")
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_og5g1")
 region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_og5g1")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

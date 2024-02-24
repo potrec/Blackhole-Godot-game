@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vxwffuvk4exe"
-path="res://.godot/imported/bacteria_type_3.png-0019ec9469d3d52832f3f0d271ba5738.ctex"
+path="res://.godot/imported/bacteria_type_3.png-02379e5be89881a283c22268aa0245cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/bacteria/bacteria_type_3.png"
-dest_files=["res://.godot/imported/bacteria_type_3.png-0019ec9469d3d52832f3f0d271ba5738.ctex"]
+source_file="res://Texture/Bacteria/bacteria_type_3.png"
+dest_files=["res://.godot/imported/bacteria_type_3.png-02379e5be89881a283c22268aa0245cb.ctex"]
 
 [params]
 
