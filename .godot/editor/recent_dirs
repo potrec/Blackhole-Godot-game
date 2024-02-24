@@ -1,7 +1,9 @@
+res://Texture
+res://
+res://Texture/Map
+res://Resources/Shaders
 res://Texture/Bacteria
 res://Resources/Maps/Map1/FoodResources
-res://Texture/Map
-res://Texture
 res://Resources/Maps/Map1
 res://Resources/Maps
 res://Scenes
@@ -11,4 +13,3 @@ res://Texture/UI/Panels
 res://Resources/Theme
 res://Texture/UI/Buttons
 res://Resources
-res://

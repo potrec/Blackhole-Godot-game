@@ -1,8 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://4kxqj60t4vvb"]
+[gd_scene load_steps=11 format=3 uid="uid://4kxqj60t4vvb"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="2_45rgi"]
+[ext_resource type="Shader" path="res://Resources/Shaders/BlackholeShader.gdshader" id="2_74n3g"]
 [ext_resource type="Texture2D" uid="uid://dk6wscd5j6b5t" path="res://Texture/blackhole.png" id="2_og5g1"]
 [ext_resource type="Texture2D" uid="uid://csx31u7yppspu" path="res://Texture/arrow.png" id="3_li7ni"]
+
+[sub_resource type="Curve" id="Curve_jqpyq"]
+min_value = -1.0
+_data = [Vector2(0.00170648, 0.517768), 0.0, 0.0, 0, 0, Vector2(0.124573, 0.0760598), 0.0, 0.0, 0, 0, Vector2(0.230375, 1), 0.0, 0.0, 0, 0, Vector2(0.322526, 0.813591), -2.67152, -2.67152, 0, 0, Vector2(0.424915, 0.351621), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ywjt0"]
+curve = SubResource("Curve_jqpyq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7iom8"]
+shader = ExtResource("2_74n3g")
+shader_parameter/curve = SubResource("CurveTexture_ywjt0")
 
 [sub_resource type="Animation" id="Animation_hj8c4"]
 resource_name = "Test"
@@ -29,24 +42,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjp6w"]
 radius = 5.0
 
-[sub_resource type="Curve" id="Curve_dxnii"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_n1k7m"]
-curve = SubResource("Curve_dxnii")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j4u3o"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 0.0
-initial_velocity_min = 90.0
-initial_velocity_max = 90.0
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_n1k7m")
-
 [node name="Player" type="Area2D"]
 script = ExtResource("2_45rgi")
 speed = 1.0
@@ -57,9 +52,16 @@ metadata/Size = 1.0
 metadata/Speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7iom8")
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_og5g1")
 region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_og5g1")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -78,13 +80,5 @@ shape = SubResource("CircleShape2D_jjp6w")
 position = Vector2(0, -7)
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_li7ni")
-
-[node name="TraceEffect" type="GPUParticles2D" parent="."]
-amount = 32
-process_material = SubResource("ParticleProcessMaterial_j4u3o")
-fixed_fps = 60
-trail_lifetime = 1.0
-trail_sections = 4
-trail_section_subdivisions = 8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwmhdw861rtsr"]
+
+[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="1_2g60r"]
+[ext_resource type="Shader" path="res://Resources/Shaders/BlackholeShader.gdshader" id="2_ig5tm"]
+[ext_resource type="Texture2D" uid="uid://dk6wscd5j6b5t" path="res://Texture/blackhole.png" id="3_y5k7x"]
+
+[sub_resource type="Curve" id="Curve_4etfn"]
+min_value = -1.0
+_data = [Vector2(0, 0.157107), 0.0, 0.0, 0, 0, Vector2(0.110922, 0.481297), 3.95781, 3.95781, 0, 0, Vector2(0.187713, 0.700125), 0.0, 0.0, 0, 0, Vector2(0.284983, 0.246259), -10.7653, -10.7653, 0, 0, Vector2(0.416382, -0.0130923), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_aem4e"]
+curve = SubResource("Curve_4etfn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ayjfs"]
+shader = ExtResource("2_ig5tm")
+shader_parameter/curve = SubResource("CurveTexture_aem4e")
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_2g60r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ayjfs")
+texture = ExtResource("3_y5k7x")
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("3_y5k7x")

@@ -17,9 +17,6 @@ func _ready():
 func _process(delta):
 	
 	var direction = Input.get_vector("Left","Right","Up","Down")
-	var angle = atan2(direction.y, direction.x)
-	print(rad_to_deg(angle))
-	$TraceEffect.rotation = angle+(3*PI)/2
 	var transport = speed*delta*direction*scale.x
 	position += transport
 	for object in objects:

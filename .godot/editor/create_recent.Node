@@ -1,14 +1,15 @@
+WorldEnvironment
+Sprite2D
+BackBufferCopy
 GPUParticles2D
 AnimationPlayer
 ColorRect
 CanvasLayer
 Label
 PanelContainer
-Sprite2D
 Container
 Control
 TextureButton
 GridContainer
 Button
 Panel
-Camera2D

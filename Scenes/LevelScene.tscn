@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1e57c1s8rxmp"]
+[gd_scene load_steps=16 format=3 uid="uid://c1e57c1s8rxmp"]
 
 [ext_resource type="PackedScene" uid="uid://svayigmao0ta" path="res://Scenes/Food.tscn" id="1_0y1yx"]
 [ext_resource type="Script" path="res://Scripts/LevelScene.gd" id="1_8q8op"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://n2hgnjy316jv" path="res://Texture/zinger.png" id="6_lxl4q"]
 [ext_resource type="Resource" uid="uid://dywxv4ttst63x" path="res://Resources/Maps/Map1/MapResource1.tres" id="7_hkejh"]
 [ext_resource type="Resource" uid="uid://cvkw0mljui3xk" path="res://Resources/Maps/Map2/MapResource2.tres" id="8_hkjn2"]
+[ext_resource type="Texture2D" uid="uid://c7lbh5lqo422r" path="res://Texture/grassTexture.png" id="9_3kuse"]
 [ext_resource type="PackedScene" uid="uid://4kxqj60t4vvb" path="res://Scenes/PlayerScene.tscn" id="9_7pjft"]
 [ext_resource type="PackedScene" uid="uid://dcgq16xfte1yk" path="res://Scenes/UiScene.tscn" id="9_8mrj5"]
-[ext_resource type="Texture2D" uid="uid://cy4pb1j0m8v8j" path="res://Texture/flowerGrassTexture.png" id="12_ykuui"]
 
 [sub_resource type="Resource" id="Resource_5r5nx"]
 script = ExtResource("3_x02o8")
@@ -30,6 +30,14 @@ mass = 1.0
 texture = ExtResource("6_lxl4q")
 foodTextureType = 0
 
+[sub_resource type="Environment" id="Environment_7ovwd"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_strength = 1.05
+glow_blend_mode = 0
+glow_hdr_scale = 0.84
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8q8op")
 maxItemCount = 100
@@ -48,21 +56,16 @@ texture_repeat = 2
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
 texture_filter = 1
 texture_repeat = 2
+texture = ExtResource("9_3kuse")
 region_enabled = true
 region_rect = Rect2(0, 0, 1500, 1000)
 region_filter_clip_enabled = true
-
-[node name="ParticlesLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_mirroring = Vector2(1500, 1000)
-
-[node name="Patricle1" type="Sprite2D" parent="ParallaxBackground/ParticlesLayer"]
-texture_filter = 1
-texture = ExtResource("12_ykuui")
-centered = false
 
 [node name="Control" parent="." instance=ExtResource("9_8mrj5")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("9_7pjft")]
 speed = 10.0
 level = NodePath("..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ovwd")
