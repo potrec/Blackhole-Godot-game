@@ -9,6 +9,6 @@
 [resource]
 script = ExtResource("1_73kx1")
 enterMass = 0.0
-endMass = 10.0
+endMass = 30.0
 mapTexture = ExtResource("1_p3kjj")
 foodResources = Array[Resource("res://Resources/FoodResource.gd")]([ExtResource("1_4n4lk"), ExtResource("2_8aj7f"), ExtResource("3_fpngs")])

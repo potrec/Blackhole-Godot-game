@@ -10,3 +10,4 @@ res://Scenes/PlayerScene.tscn
 res://Resources/Shaders/BlackholeShader.gdshader
 res://sprite_2d.tscn
 res://Scripts/PlayerScript.gd
+res://Scripts/LevelScene.gd

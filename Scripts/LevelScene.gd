@@ -22,7 +22,8 @@ var currentMapId = 0
 
 func _ready():
 	update_ui()
-	update_map(currentMapId)
+	sprite2D.set_texture(mapResources[currentMapId].mapTexture)
+	foodResources = mapResources[currentMapId].foodResources
 	for i in range(maxItemCount):
 		create_food()
 
@@ -52,6 +53,9 @@ func remove_food(object):
 	create_food()
 	target_closest_food()
 	increase_background_region()
+	if(player.scale.x >= mapResources[currentMapId].endMass):
+		currentMapId += 1
+		update_map(currentMapId)
 
 func create_food():
 	var newObject = food.instantiate()
@@ -87,3 +91,6 @@ func increase_background_region():
 func update_map(i):
 	sprite2D.set_texture(mapResources[i].mapTexture)
 	foodResources = mapResources[i].foodResources
+	aliveFoodList.clear()
+	for j in range(maxItemCount):
+		create_food()
